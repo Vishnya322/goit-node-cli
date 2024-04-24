@@ -1,12 +1,5 @@
-const contacts = require("./contacts");
 const { program } = require("commander");
-
-// import {
-//   listContacts,
-//   getContactById,
-//   addContact,
-//   removeContact,
-// } from "./contacts.js";
+const contacts = require("./contacts");
 
 program
   .option("-a, --action <type>", "choose action")
@@ -23,9 +16,9 @@ async function invokeAction({ action, id, name, email, phone }) {
   try {
     switch (action) {
       case "list":
-        const contacts = await contacts.listContacts();
+        const contactsList = await contacts.listContacts();
         console.log("Contacts:");
-        console.table(contacts);
+        console.table(contactsList);
         break;
 
       case "get":
